@@ -1,5 +1,10 @@
+body{
+    background-color:#1f1f1f;
+    color: #f0f0f0;  
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 .cover_photo{
-    background-image: url("https://www.skyweaver.net/images/media/wallpapers/wallpaper5.jpg");
+    background-image: url("https://c.tenor.com/rxXGnHuDxecAAAAC/tenor.gif.jpg");
     background-size: cover;
     background-position: center;
     height: 450px;
@@ -11,10 +16,148 @@
 .DP{
     display: flex;
     justify-content: center; 
+    flex-direction: column;
     margin-top: -100px;
+    align-items: center;
+    
     
 }
-img{
-    border: 10px solid rgba(0, 0, 0, 0.808);
-    border-radius: 25%;
+.DP img{
+    
+    border: 5px solid #1f1f1f       ;
+    border-radius: 100%;
+}
+.DP .User_name,.DP .User_Discpritatio{
+    font-size: 25px;
+    color: aliceblue;
+}
+.Posts{
+    background-color: #161515;
+     border-radius: 30px; 
+    padding: 20px 30px;   
+    margin-left: 100px;
+    margin-right: 100px;
+   color: #eee;  
+   box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+   margin-top: 50px ;
+   margin-bottom: 50px;
+   
+}
+.Post_body{
+    display: flex;
+    background-color: #161515;
+     border-radius: 30px; 
+    padding: 20px 30px;   
+    margin-left: 100px;
+    margin-right: 300px;
+   color: #eee;  
+   box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+   margin-top: 50px ;
+  
+}
+.post_text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+    
+}
+
+.Post_body img{
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    margin-right: 10px;
+}
+.Post_body time {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 3px;
+}
+.post_Content{
+    text-align: justify;
+     line-height: 1.6;
+}
+.vote_buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    width: 40px;
+    user-select: none;
+}
+
+.vote-box {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  background: #111;
+  padding: 6px 8px;
+  border-radius: 999px;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 18px;
+  margin-left: 100px;
+  margin-top: 20px;
+}
+
+.vote-btn {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 32px;
+  cursor: pointer;
+  padding: 4px;
+  margin-top: 5px;
+}
+
+.vote-btn:hover {
+  color:  wheat; 
+}
+
+.vote-count {
+  margin: 4px 0;
+}
+.top-bar {
+    width: 100vw; 
+    background-color: #1f1f1f;
+    padding: 15px 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    margin-bottom: 100px;
+
+}
+
+.logo {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.home-button {
+        position: absolute;
+    left: 50%;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.home-button:hover {
+    color: #f2c94c;
+}
+
+/* Push body content below the sticky header */
+body {
+    padding-top: 60px;
+    background-color: #1f1f1f;
+    color: #f1f1f1;
+    margin: 0;
+    font-family: sans-serif;
 }
