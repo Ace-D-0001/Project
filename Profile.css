@@ -79,6 +79,23 @@ body{
     text-align: justify;
      line-height: 1.6;
 }
+.more_posts {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background-color: #272626;
+  padding: 10px 20px;
+  border-radius: 50px;
+}
+
+.xo {
+  background: none;
+  border: none;
+  color: #eee;
+  font-size: 20px;
+  cursor: pointer;
+}
+
 .vote_buttons {
     display: flex;
     flex-direction: column;
@@ -120,7 +137,8 @@ body{
   margin: 4px 0;
 }
 .top-bar {
-    width: 100vw; 
+    width: 100%; 
+    
     background-color: #1f1f1f;
     padding: 15px 40px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
@@ -134,30 +152,10 @@ body{
     margin-bottom: 100px;
 
 }
-
-.logo {
-    color: white;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.home-button {
-        position: absolute;
-    left: 50%;
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.home-button:hover {
-    color: #f2c94c;
-}
-
-/* Push body content below the sticky header */
-body {
-    padding-top: 60px;
-    background-color: #1f1f1f;
-    color: #f1f1f1;
-    margin: 0;
-    font-family: sans-serif;
+.top-bar .logo
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #f0f0f0;  
+    font-size: 28px;
+    font-weight:bold;
 }
