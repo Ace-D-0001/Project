@@ -168,3 +168,34 @@ body {
     background-color: #ffa500;
     color: #121212;
 }
+.opt{
+     background-color: #1f1f1f;
+      color: #66aaff;
+      padding: 20px;
+      margin: 30px auto;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+
+}
+.opt input{
+    padding: 10px;
+      width: 80%;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      border: none;
+      background: #333;
+      color: #eee;
+}
+.opt button
+{
+    padding: 10px 20px;
+      font-weight: bold;
+      background: transparent;
+      border: 2px solid #66aaff;
+      color: white;
+      border-radius: 6px;
+      cursor: point
+}
