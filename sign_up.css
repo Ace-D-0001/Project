@@ -188,9 +188,24 @@ body {
 
 
 }
-.Opt input{
+.Submiting_Images{
+    display: flex;
+     justify-items: center;
+    justify-content: center;
+     background-color: #1f1f1f;
+      color: #66aaff;
+      padding: 20px;
+      margin: 30px auto;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+      margin-top: 50%;
+}
+.Submiting_Images input{
     padding: 10px;
-      width: 80%;
+      width: 300px  ;
       margin-bottom: 10px;
       border-radius: 6px;
       border: none;
