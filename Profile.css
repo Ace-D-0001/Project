@@ -238,16 +238,19 @@ body{
   align-items: center;
  
 }
+#popup-toggle {
+  position: absolute;
+  left: -9999px;
+}
+
 #popup-toggle ~ .popup_overlay {
   display: none;
 }
 
-/* Show popup when checkbox is checked */
 #popup-toggle:checked ~ .popup_overlay {
   display: flex;
 }
 
-/* Fix display for .Post_Button_main */
 .Post_Button_main {
   display: flex;
   gap: 20px;
@@ -283,4 +286,31 @@ body{
   margin: 5px 0 0 0;
   font-size: 14px;
   font-weight: bold;
+}
+.Posts_page{
+  text-align: center;
+      background-color: #161515;
+     border-radius: 30px; 
+    padding: 0px 0px;   
+    margin-left: 80px;
+    margin-right: 80px;
+   color: #eee;  
+   box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+   margin-top: 40px ;
+   margin-bottom: 50px;
+   position: sticky;
+   top: 74px;
+}
+.delete-btn {
+  font-size: 20px;
+  cursor: pointer;
+  color: #aaa;
+  margin-left: auto;  border-radius: 100% ;
+  transition: color 0.2s ease;
+  padding-left: 10px;
+  align-self: center;
+}
+
+.delete-btn:hover {
+ 
 }

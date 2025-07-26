@@ -109,7 +109,10 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-
+.Opt_Buttons:hover{
+    background-color: #66aaff;
+    color: #121212;
+}
 .Submit button:hover {
     background-color: #66aaff;
     color: #121212;
@@ -168,7 +171,10 @@ body {
     background-color: #ffa500;
     color: #121212;
 }
-.opt{
+.Opt{
+     display: flex;
+     justify-items: center;
+    justify-content: center;
      background-color: #1f1f1f;
       color: #66aaff;
       padding: 20px;
@@ -178,9 +184,11 @@ body {
       border-radius: 10px;
       text-align: center;
       box-shadow: 0 0 10px rgba(255,255,255,0.2);
+      margin-top: 50%;
+
 
 }
-.opt input{
+.Opt input{
     padding: 10px;
       width: 80%;
       margin-bottom: 10px;
@@ -189,7 +197,7 @@ body {
       background: #333;
       color: #eee;
 }
-.opt button
+.Opt_Buttons
 {
     padding: 10px 20px;
       font-weight: bold;
@@ -197,5 +205,24 @@ body {
       border: 2px solid #66aaff;
       color: white;
       border-radius: 6px;
-      cursor: point
+      cursor: pointer;  
+}
+.Opt_Buttons_back
+{
+    padding: 10px 20px;
+      font-weight: bold;
+      background: transparent;
+      border: 2px solid #66aaff;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer; 
+      width: 400px; 
+}
+.Opt_Buttons:hover{
+    background-color: #66aaff;
+    color: #121212;
+}
+.Opt_Buttons_back:hover{
+    background-color: #66aaff;
+    color: #121212;
 }
