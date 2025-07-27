@@ -2,7 +2,7 @@
 require 'PHPMailer/PHPMailer.php';
 require 'PHPMailer/SMTP.php';
 require 'PHPMailer/Exception.php';
-require 'env_loader.php';  // 👈 Load .env variables
+require 'env_loader.php';  
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;

@@ -7,6 +7,15 @@
 </head>
  <?php
  session_start();
+ require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/SMTP.php';
+require 'PHPMailer/Exception.php';
+require 'env_loader.php';  
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+
   $host = "localhost";      
 $user = "root";          
 $pass = "";              
@@ -39,15 +48,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hash=hash("sha256",$password);
     $insert = "INSERT INTO users (name, email, password) VALUES ('$username', '$email', '$hash')";
     $Otp = rand(1000, 9999);
-    require 'send_mail.php'; // ✅ include the mail function
+    load_env(); 
 
-    if (send_otp_mail($email, $Otp)) {
-        $_SESSION['otp'] = $Otp;         // store OTP for checking later
-        $_SESSION['email'] = $email;     // optional, for later verification
-        $show_otp_box = true;
-    } else {
-        echo "❌ OTP Email sending failed.";
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'sandbox.smtp.mailtrap.io';
+        $mail->SMTPAuth = true;
+        $mail->Username = $_ENV['MAIL_USERNAME'];
+        $mail->Password = $_ENV['MAIL_PASSWORD'];
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 2525;
+
+        $mail->setFrom('no-reply@fakedit.com', 'Faked_It');
+        $mail->addAddress($email);
+        $mail->isHTML(true);
+        $mail->Subject = 'Your Faked_It OTP Code';
+        $mail->Body    = "Your One-Time Password (OTP) is <strong>$Otp</strong>";
+
+        $mail->send();
+        $_SESSION['otp'] = $Otp;        
+    $_SESSION['email'] = $email;
+    $_SESSION['hash'] = $hash;   
+    $_SESSION['username'] = $username;
+
+    header("Location: Otp.php");            
+    } catch (Exception $e) {
+        
     }
+
+/*
+    if (send_otp_mail($email, $Otp)) {
+        $_SESSION['otp'] = $Otp;        
+        $_SESSION['email'] = $email;
+        $_SESSION['hash'] =$hash;   
+        $_SESSION['username']=$username;
+        header("Location: Otp.php");
+        exit;
+    } else {
+        echo "OTP Email sending failed. Error: " . $mail->ErrorInfo;
+    exit;
+    }
+    */
 }
     ?>
 <body>
@@ -87,15 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </form>
     </main>
- <?php if ($show_otp_box): ?>
-<div class="opt">
-  <form action="check_otp.php" method="POST">
-    <h3>Enter OTP</h3>
-    <input type="text" name="otp_input" placeholder="Go to your Email" required />
-    <button type="submit">Submit</button>
-  </form>
-</div>
-<?php endif; ?>
+ 
     <section class="Other">
         <a href="Log_in.html">
             <h6>Already have an account?</h6>

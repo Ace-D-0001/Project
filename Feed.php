@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Profile.css">
+    <title>User_Profile</title>
+</head>
+<body>
+      <input type="checkbox" id="popup-toggle" hidden>
+       
+      <div>
+            <header class="top-bar">
+             <div class="logo">Faked_It</div>
+
+            </header>
+            <div class="Top">
+            <div class="Inner_top">
+            <div class="Sub_top">
+               <div class="logo">🏠</div>
+               <div class="Logo_text"><p>Home</p></div> 
+            </div>
+            <div class="Sub_top">
+                 <div class="logo">🙍🏻‍♂️</div>
+               <div class="Logo_text"><p>-  User</p></div> 
+            </div>
+            <div class="Log_Out">
+                 <div class="logo">⏻</div>
+               <div class="Logo_text"><p>Log_Out</p></div> 
+            </div>
+            </div>
+         </div>
+
+            
+            <div class="Posts_page">
+                <h1>_Posts_:</h1>
+            </div>
+            
+            <div class="Post_body">
+                
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTvzWOTZrvg-phxSDp2BUCMyxaoTs7YIUpLQ&s" alt="">
+                <div class="post_text">
+                 <p>_name_</p>
+                <time datetime="2025-07-21T01:40">Posted on July 21, 2025 at 1:40 AM</time>
+                    <div class="post_Content">
+                 <p>Random Paragraph
+                    For those who are interested in finding random paragraphs, that's exactly what this webpage provides. If both a random word and a random sentence aren't quite long enough for your needs, then a random paragraph might be the perfect solution. Once you arrive at this page, you'll see a random paragraph. If you need another one, all you need to do is click on the "next paragraph" button. If you happen to need several random paragraphs all at once, you can use this other paragraph generator. Below you can find a number of ways that this generator can be used.
+                 </div>
+            </div>
+           
+            </div>
+            <div class="vote-box">
+            <button class="vote-btn">&#9650;</button>
+            <span class="vote-count">1.2K</span>
+             <button class="vote-btn">&#9660;</button>
+            
+             </div>
+            
+              <div class="Post_body">
+                
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTvzWOTZrvg-phxSDp2BUCMyxaoTs7YIUpLQ&s" alt="">
+                <div class="post_text">
+                 <p>_name_</p>
+                <time datetime="2025-07-21T01:40">Posted on July 21, 2025 at 1:40 AM</time>
+                    <div class="post_Content">
+                 <p>Random Paragraph
+                    For those who are interested in finding random paragraphs, that's exactly what this webpage provides. If both a random word and a random sentence aren't quite long enough for your needs, then a random paragraph might be the perfect solution. Once you arrive at this page, you'll see a random paragraph. If you need another one, all you need to do is click on the "next paragraph" button. If you happen to need several random paragraphs all at once, you can use this other paragraph generator. Below you can find a number of ways that this generator can be used.
+                 </div>
+            </div>
+           
+            </div>
+            <div class="vote-box">
+            <button class="vote-btn">&#9650;</button>
+            <span class="vote-count">1.2K</span>
+             <button class="vote-btn">&#9660;</button>
+            
+             </div>
+                <div class="Post_body">
+                
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTvzWOTZrvg-phxSDp2BUCMyxaoTs7YIUpLQ&s" alt="">
+                <div class="post_text">
+                 <p>_name_</p>
+                <time datetime="2025-07-21T01:40">Posted on July 21, 2025 at 1:40 AM</time>
+                    <div class="post_Content">
+                 <p>Random Paragraph
+                    For those who are interested in finding random paragraphs, that's exactly what this webpage provides. If both a random word and a random sentence aren't quite long enough for your needs, then a random paragraph might be the perfect solution. Once you arrive at this page, you'll see a random paragraph. If you need another one, all you need to do is click on the "next paragraph" button. If you happen to need several random paragraphs all at once, you can use this other paragraph generator. Below you can find a number of ways that this generator can be used.
+                 </div>
+            </div>
+          
+            </div>
+            <div class="vote-box">
+            <button class="vote-btn">&#9650;</button>
+            <span class="vote-count">1.2K</span>
+             <button class="vote-btn">&#9660;</button>
+            
+             </div>
+                <div class="Post_body">
+                
+                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTvzWOTZrvg-phxSDp2BUCMyxaoTs7YIUpLQ&s" alt="">
+                <div class="post_text">
+                 <p>_name_</p>
+                <time datetime="2025-07-21T01:40">Posted on July 21, 2025 at 1:40 AM</time>
+                    <div class="post_Content">
+                 <p>Random Paragraph
+                    For those who are interested in finding random paragraphs, that's exactly what this webpage provides. If both a random word and a random sentence aren't quite long enough for your needs, then a random paragraph might be the perfect solution. Once you arrive at this page, you'll see a random paragraph. If you need another one, all you need to do is click on the "next paragraph" button. If you happen to need several random paragraphs all at once, you can use this other paragraph generator. Below you can find a number of ways that this generator can be used.
+                 </div>
+            </div>
+           
+            </div>
+            <div class="vote-box">
+            <button class="vote-btn">&#9650;</button>
+            <span class="vote-count">1.2K</span>
+             <button class="vote-btn">&#9660;</button>
+            
+             </div>
+             
+        </div>
+        <div class="popup_overlay">
+             <div class="id_pop">
+             <textarea placeholder="...Write here..." class="Post_Box"></textarea>
+            <div class="Post_Button_main">
+            <button class="Post_Button1">Post</button>
+            <label for="popup-toggle" class="Post_Button2">Close</label>
+            </div>
+            </div>
+            </div>
+            
+</body>
+</html>

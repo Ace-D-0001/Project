@@ -6,6 +6,33 @@
     <link rel="stylesheet" href="sign_up.css" />
     <link rel="stylesheet" href="Log_in.php">
 </head>
+<?php
+ session_start();
+   $host = "localhost";      
+$user = "root";          
+$pass = "";              
+$db = "project";  
+$conn = mysqli_connect($host, $user, $pass, $db);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+$username=($_POST["username"]);
+
+$password=($_POST["password"]);
+$hash=hash("sha256",$password);
+$sql="SELECT * From basic_user_info where name='$username' and password ='$hash'";
+$result = mysqli_query($conn,$sql);
+
+if (mysqli_num_rows($result) == 1) {
+
+    $_SESSION['username']=$username;
+    header("Location:Feed.php");
+    exit;
+
+}
+else {
+    echo "Invalid username or password.";
+}
+}
+?>
 <body>
 
     <header class="top-bar">

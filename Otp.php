@@ -5,7 +5,20 @@
     <title>Faked_It - Sign Up</title>
     <link rel="stylesheet" href="sign_up.css" />
 </head>
-
+<?php
+session_start();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+ $otp= $_SESSION['otp'] ;        
+    $email=$_SESSION['email'] ;
+    $hash = $_SESSION['hash']  ;   
+     $username= $_SESSION['username'];
+     $otp_input=($_POST["otp_input"]);
+     if($otp==$otp_input){
+        header("Location:Pre_login.php");
+        exit;
+     }
+}
+?>
 <body>
    
 
