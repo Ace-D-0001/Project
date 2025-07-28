@@ -40,13 +40,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $c = "SELECT * FROM basic_user_info WHERE email='$email'";
     $result=mysqli_query($conn,$c);
- if (mysqli_num_rows($result) > 0) {
+     if (mysqli_num_rows($result) > 0) {
     echo "This email is already registered <br> Try a new one.";
     exit;
 }
 
     $hash=hash("sha256",$password);
-    $insert = "INSERT INTO users (name, email, password) VALUES ('$username', '$email', '$hash')";
+    //  $insert = "INSERT INTO users (name, email, password) VALUES ('$username', '$email', '$hash')";
     $Otp = rand(1000, 9999);
     load_env(); 
 
@@ -72,7 +72,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['hash'] = $hash;   
     $_SESSION['username'] = $username;
 
-    header("Location: Otp.php");            
+    header("Location: Otp.php");  
+    exit;          
     } catch (Exception $e) {
         
     }

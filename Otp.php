@@ -13,9 +13,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hash = $_SESSION['hash']  ;   
      $username= $_SESSION['username'];
      $otp_input=($_POST["otp_input"]);
-     if($otp==$otp_input){
-        header("Location:Pre_login.php");
+     echo "<h1>$otp_input</h1>";
+     if($otp == $otp_input){
+        header("Location: Log_in.php");
         exit;
+     }
+     else{
+      echo "<p style='color:red;'>Incorrect OTP. Please try again.</p>";
      }
 }
 ?>
