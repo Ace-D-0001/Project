@@ -1,40 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <title>Faked_It - Log_in</title>
+  
+    <title>Faked_It - Sign Up</title>
     <link rel="stylesheet" href="sign_up.css" />
-    
 </head>
 <?php
 session_start();
-    $host = "localhost";
+ $host = "localhost";
     $user = "root";
     $pass = "";
     $db = "project";
+    $error= null ;
 $conn = mysqli_connect($host, $user, $pass, $db);
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = ($_POST["username"]);
 
-    $password =  ($_POST["password"]);
-    $hash = hash("sha256", $password);
-    $sql = "SELECT * From basic_user_info where name='$username' and password ='$hash'";
-    $result = mysqli_query($conn, $sql);
+if( $_SERVER["REQUEST_METHOD"] == "POST"){
+    $username= ($_POST["username"]);
+$password= ($_POST["password"]);
 
-    if (mysqli_num_rows($result) == 1) {
 
-        $_SESSION['username'] = $username;
-        $_SESSION['hash'] = $hash;
-        header("Location:Profile.php");
-        exit;
-
-    } else {
-        echo "Invalid username or password.";
+if ($username == "admin" AND $password == "admin") {
+    header("Location: Feed.php");
+    exit;
     }
+    else {  
+    $error= 1;
+   
+}
 }
 ?>
-
 <body>
 
     <header class="top-bar">
@@ -42,10 +36,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
 
     <main id="container">
-
-        <p>Welcome! </p>
-        <p>Please Enter your user name and password.</p>
-        <form class="user" action="Log_in.php" autocomplete="off" method='POST'>
+        <p>Ola_Admin! </p>
+       <p> Enter your user name and .</p>
+       <?php  if($error== 1) : ?>
+            <div style="color:red; font-weight:bold; margin-bottom:10px;">
+            Invalid username of password 
+            </div>  
+            <?php endif;  ?>
+        <form class="user" action="" method="post" autocomplete="off">
             <div class="user_name">
                 <label for="username">Username:</label>
                 <input id="username" name="username" type="text" required />
@@ -54,13 +52,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div class="user_pass">
                 <label for="password">Password:</label>
-                <input id="password" name="password" type="password" required />
+                <input id="password" name="password" type="password" required  />
             </div>
 
+             
 
-
+            
+            
             <div class="Submit">
-                <button type="submit" name="Submit">Sign Up</button>
+                <button type="submit">Sign Up</button>
             </div>
         </form>
     </main>
@@ -76,12 +76,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="button">Reset Password</button>
         </a>
 
-        <a href="admin.html">
-            <h6>Are you an administrator?</h6>
-            <button type="button">Admin Login</button>
+        <a href="Log_in.html">
+            <h6>Already have an account?</h6>
+            <button type="button">Log_in</button>
         </a>
     </section>
 
 </body>
-
 </html>

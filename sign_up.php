@@ -41,9 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $c = "SELECT * FROM basic_user_info WHERE email='$email'";
     $result=mysqli_query($conn,$c);
      if (mysqli_num_rows($result) > 0) {
-    echo "This email is already registered <br> Try a new one.";
+    $error = "This email is already registered. Please try logging in or use a different email.";
     exit;
 }
+else{
 
     $hash=hash("sha256",$password);
     //  $insert = "INSERT INTO users (name, email, password) VALUES ('$username', '$email', '$hash')";
@@ -75,9 +76,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: Otp.php");  
     exit;          
     } catch (Exception $e) {
-        
+   $error = "OTP email sending failed. Please try again.";
     }
-
+}
 /*
     if (send_otp_mail($email, $Otp)) {
         $_SESSION['otp'] = $Otp;        
@@ -104,15 +105,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p>Welcome Strenger ! </p>
        <p>Please sign up to create your Faked_It account.</p>
         <form class="user" action="" autocomplete="off" method='POST'>
-   
+
+
+        <?php if(!empty($error)) : ?>
+           <div style="color:red; font-weight:bold; margin-bottom:10px;">
+            <?php echo $error; ?>
+           </div>
+     <?php endif; ?>
+        
+            
+         
             <div class="user_name">
                 <label for="username">Username:</label>
-                <input id="username" name="username" type="text"  required/>
+               <input id="username" name="username" type="text" value="<?php echo isset($username) ? htmlspecialchars($username) : ''; ?>" required />
             </div>
 
             <div class="user_mail">
                 <label for="email">Email:</label>
-                <input id="email" name="email" type="email"  required />
+             <input id="email" name="email" type="email" value="<?php echo isset($email) ? htmlspecialchars($email) : ''; ?>" required />
             </div>
 
             <div class="user_pass">
@@ -126,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
             <div class="Submit">
-                <a href="Profile.php"><button type="submit">Sign Up</button></a>
+           <button type="submit">Sign Up</button></a>
             </div>
         </form>
     </main>
