@@ -34,7 +34,7 @@ if ($username == "admin" AND $password == "admin") {
     <header class="top-bar">
         <div class="logo">Faked_It</div>
     </header>
-
+    
     <main id="container">
         <p>Ola_Admin! </p>
        <p> Enter your user name and .</p>
