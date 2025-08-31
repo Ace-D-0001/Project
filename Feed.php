@@ -6,6 +6,41 @@
     <link rel="stylesheet" href="Profile.css">
     <title>User_Profile</title>
 </head>
+<?php
+session_start();
+$host = "localhost";
+$user = "root";   
+$pass = "";
+$db = "project";
+$conn = mysqli_connect($host, $user, $pass, $db);
+
+$dp = "";  
+$cover = "https://pbs.twimg.com/media/FA9Yil9UUAc_HAV.jpg:large";
+$bio = "---";
+$username = "Guest";
+
+ 
+  if (isset($_SESSION["username"]) && isset($_SESSION["hash"])) {
+      $username = $_SESSION['username'];
+      $password = $_SESSION['hash'];
+      
+      $sql = "SELECT *FROM basic_user_info Where name='$username' and password='$password' ";
+      $result = mysqli_query($conn, $sql);
+      $row = mysqli_fetch_array($result);
+      
+      if ($row) {
+         $dp = $row["profile_pic"];
+         $cover = $row["cover_pic"];
+         $bio = $row["bio"];
+         $user_id = $row["id"];
+     }
+     $error="";
+}
+        if(isset($_POST['load_more'])){
+       
+        }
+  
+?>
 <body>
       
        
@@ -38,20 +73,41 @@
             <div class="Posts_page">
                 <h1>_Posts_:</h1>
             </div>
-            
+          
+               
             <div class="Post_body">
-                
-                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTvzWOTZrvg-phxSDp2BUCMyxaoTs7YIUpLQ&s" alt="">
-                <div class="post_text">
-                 <p>_name_</p>
-                <time datetime="2025-07-21T01:40">Posted on July 21, 2025 at 1:40 AM</time>
+              <?php
+      
+             $post_sql="SELECT * FROM posts where status = 'approved' ORDER BY timestampt DESC LIMIT 10";
+             $post_result=mysqli_query($conn,$post_sql);
+            
+             
+             while($post_data=mysqli_fetch_array($post_result)){
+                $post_id=$post_data['id'];
+                $post_user_id=$post_data['user_id'];
+                $post_user_name=$post_data['user_name'];
+                $post_profile_image=$post_data['profile_image'];
+                $post_content=$post_data['content'];
+                $post_time=$post_data['timestampt'];
+                $post_status=$post_data['status'];
+                $post_upvotes=$post_data['upvotes'];
+                $post_downvotes=$post_data['downvotes'];
+               }
+               ?>
+            
+                 
+                      <img src=<?php "$post_profile_image"?> alt="">
+                        div class="post_text">
+                 <p><?php $post_user_name?></p>
+                <time datetime="2025-07-21T01:40">Posted on <?php $post_time?></time>
                     <div class="post_Content">
-                 <p>Random Paragraph
-                    For those who are interested in finding random paragraphs, that's exactly what this webpage provides. If both a random word and a random sentence aren't quite long enough for your needs, then a random paragraph might be the perfect solution. Once you arrive at this page, you'll see a random paragraph. If you need another one, all you need to do is click on the "next paragraph" button. If you happen to need several random paragraphs all at once, you can use this other paragraph generator. Below you can find a number of ways that this generator can be used.
-                 </div>
+                     <p><?php $post_content?></p>
             </div>
+                
+              ?>
+              
            
-            </div>
+            </div>   
             <div class="vote-box">
             <button class="vote-btn">&#9650;</button>
             <span class="vote-count">1.2K</span>
@@ -59,9 +115,12 @@
             
              </div>
             
-        
-
-        </div>
+        <div class="load-more">
+         <form action="Feed.php">
+            <button  name="load_more" class="load-more-btn">Load More</button>
+            <button type="button" class="Post_Button1" onclick="window.location.reload();">Close</button>
+         </form>
+        </div>    
       
             
 </body>
