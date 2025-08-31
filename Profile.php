@@ -32,14 +32,11 @@ $username = "Guest";
          $dp = $row["profile_pic"];
          $cover = $row["cover_pic"];
          $bio = $row["bio"];
+         $user_id = $row["id"];
      }
      $error="";
 }
-    $user_sql="SELECT id,profile_pic FROM basic_user_info WHERE name='$username' AND password= '$password'";
-         $user_result=mysqli_query($conn,$user_sql);
-         $user_data=mysqli_fetch_array($user_result);
-
-         $user_id=$user_data['id'];
+    
    if(isset($_POST['post_submit'])){
       $post_content=trim($_POST['post_content']);
       if(empty($post_content)){
