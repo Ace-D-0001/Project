@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="pro.css">
-   <title>User_Profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pro.css">
+    <title>User_Profile</title>
 </head>
 <?php
 session_start();
@@ -57,120 +57,122 @@ $username = "Guest";
    }
 ?>
 <style>
-   .cover_photo {
-      background-image: url('<?php echo $cover; ?>');
-      background-size: cover;
-      background-position: center;
-      height: 550px;
-      width: 100%;
-      
-   }
+.cover_photo {
+    background-image: url('<?php echo $cover; ?>');
+    background-size: cover;
+    background-position: center;
+    height: 550px;
+    width: 100%;
+
+}
 </style>
 
 <body>
-  
 
-   <div>
-      <header class="top-bar">
-         <div class="logo">Faked_It</div>
 
-      </header>
-      <div class="Top">
-         <div class="Inner_top">
-            <a href="Feed.php">
-               <div class="Sub_top">
-                  <div class="logo">🏠</div>
-                  <div class="Logo_text">
-                     <p>Home</p>
-                  </div>
-               </div>
-            </a>
-            <a href="Profile.php">
-               <div class="Sub_top">
-                  <div class="logo">🙍🏻‍♂️</div>
-                  <div class="Logo_text">
-                     <p>- User</p>
-                  </div>
-               </div>
-            </a>
-            <div class="Log_Out">
-               <div class="logo">⏻</div>
-               <div class="Logo_text">
-                  <p>Log_Out</p>
-               </div>
+    <div>
+        <header class="top-bar">
+            <div class="logo">Faked_It</div>
+
+        </header>
+        <div class="Top">
+            <div class="Inner_top">
+                <a href="Feed.php">
+                    <div class="Sub_top">
+                        <div class="logo">🏠</div>
+                        <div class="Logo_text">
+                            <p>Home</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="Profile.php">
+                    <div class="Sub_top">
+                        <div class="logo">🙍🏻‍♂️</div>
+                        <div class="Logo_text">
+                            <p>- User</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="Log_Out">
+                    <div class="logo">⏻</div>
+                    <div class="Logo_text">
+                        <p>Log_Out</p>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-
-      <div class="cover_photo"></div>
-      <div class="DP">
-         <div>
-            <img class="dp_img" src="<?php echo $dp; ?>" alt="">
-         </div>
-         <div class="User_name">
-            <p>
-            <p><?php echo htmlspecialchars($username); ?></p>
-            </p>
-         </div>
-         <div class="User_Discpritatio ">
-            <p><?php echo htmlspecialchars($bio); ?></p>
-         </div>
-      </div>
-    <!--  <div class="popup_overlay">-->
-       <div class="Posts">
-         <h1>Wanna_Post_Something:</h1>
-      </div>
-      <div class="id_pop">
-    <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
-    <form method="POST" action="profile.php">
-        <textarea name="post_content" placeholder="...Write here..." class="Post_Box"><?php if(isset($post_content)) echo htmlspecialchars($post_content); ?></textarea>
-        <div class="Post_Button_main">
-            <button type="submit" name="post_submit" class="Post_Button1">Post</button>
-            <button type="button" class="Post_Button1" onclick="window.location.reload();">Close</button>
         </div>
-    </form>
-</div>
-   </div>
-     <!-- <div class="Posts">
+
+        <div class="cover_photo"></div>
+        <div class="DP">
+            <div>
+                <img class="dp_img" src="<?php echo $dp; ?>" alt="">
+            </div>
+            <div class="User_name">
+                <p>
+                <p><?php echo htmlspecialchars($username); ?></p>
+                </p>
+            </div>
+            <div class="User_Discpritatio ">
+                <p><?php echo htmlspecialchars($bio); ?></p>
+            </div>
+        </div>
+        <!--  <div class="popup_overlay">-->
+        <div class="Posts">
+            <h1>Wanna_Post_Something:</h1>
+        </div>
+        <div class="id_pop">
+            <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
+            <form method="POST" action="profile.php">
+                <textarea name="post_content" placeholder="...Write here..."
+                    class="Post_Box"><?php if(isset($post_content)) echo htmlspecialchars($post_content); ?></textarea>
+                <div class="Post_Button_main">
+                    <button type="submit" name="post_submit" class="Post_Button1">Post</button>
+                    <button type="button" class="Post_Button1" onclick="window.location.reload();">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- <div class="Posts">
          <h1>_Posts_:</h1>
       </div>
 -->
-     
-      <?php
+
+    <?php
       $post_count_sql = "SELECT COUNT(*) as total FROM posts WHERE user_id='$user_id'";
       $post_count_result = mysqli_query($conn, $post_count_sql);
       $post_count_row = mysqli_fetch_assoc($post_count_result);
       $total_posts = $post_count_row['total'];
 
-      echo "<h3>Total posts: $total_posts</h3>";
+      
       $posts_sql = "SELECT * FROM posts WHERE user_id='$user_id' ORDER BY timestampt DESC";
       $posts_result = mysqli_query($conn, $posts_sql);
       ?>
-      <div class="Posts">
-      <h1>_Posts_:</h1>
-      <h3>Total posts: <?php echo $total_posts; ?></h3> <!-- ✅ shown only once -->
-      </div>
+    <div class="Posts">
+        <h1>_Posts_:</h1>
+        <h3>Total posts: <?php echo $total_posts; ?></h3>
+    </div>
 
 
-   <?php
+    <?php
     if (mysqli_num_rows($posts_result) > 0) {
     while ($post = mysqli_fetch_assoc($posts_result)) {
         ?>
-        <div class="Post_body">
+    <div class="Post_body">
 
-           <img src="<?php echo htmlspecialchars($post['profile_image']); ?>" alt="">
-            <div class="post_text">
-                <p><?php echo htmlspecialchars($post['user_name']); ?></p>
-                <time datetime="<?php echo date('c', strtotime($post['timestampt'])); ?>">
-                    Posted on <?php echo date("F j, Y \\a\\t g:i A", strtotime($post['timestampt'])); ?>
-                </time>
-                <div class="post_Content">
-                    <p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
-                </div>
-                <div class="delete-btn" data-post-id="<?php echo $post['id']; ?>">🗑️</div>
+        <img src="<?php echo htmlspecialchars($post['profile_image']); ?>" alt="">
+        <div class="post_text">
+            <p><?php echo htmlspecialchars($post['user_name']); ?></p>
+            <time datetime="<?php echo date('c', strtotime($post['timestampt'])); ?>">
+                Posted on <?php echo date("F j, Y \\a\\t g:i A", strtotime($post['timestampt'])); ?>
+            </time>
+            <div class="post_Content">
+                <p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
             </div>
+
         </div>
-        <?php
+        <div class="delete-btn" data-post-id="<?php echo $post['id']; ?>">🗑️</div>
+    </div>
+    <?php
     }
 } else {
     echo "<p>No posts yet.</p>";
@@ -179,7 +181,7 @@ $username = "Guest";
 
 
 
-   </div>
+    </div>
 
 
 </body>

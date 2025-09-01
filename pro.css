@@ -266,7 +266,7 @@ font-size: 25px;
 }
 
 .delete-btn {
-  font-size: 20px;
+  font-size: 35px;
   cursor: pointer;
   color: #aaa;
   margin-left: auto;
@@ -275,6 +275,8 @@ font-size: 25px;
   padding-left: 10px;
   align-self: center;
   align-items: center;
+  right: 0%
+  ;
 }
 
 .delete-btn:hover {
