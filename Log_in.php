@@ -10,16 +10,16 @@
 <?php
 session_start();
     $host = "localhost";
-    $user = "root";
-    $pass = "";
-    $db = "project";
+$user = "ace";   
+$pass = "your_password";
+$db = "project";
 $conn = mysqli_connect($host, $user, $pass, $db);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = ($_POST["username"]);
 
     $password =  ($_POST["password"]);
     $hash = hash("sha256", $password);
-    $sql = "SELECT * From basic_user_info where name='$username' and password ='$hash'";
+    $sql = "SELECT * From basic_user_info where username='$username' and password ='$hash'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) == 1) {

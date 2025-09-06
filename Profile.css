@@ -3,6 +3,7 @@
     color: #f0f0f0;  
      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 /*.cover_photo{
     background-image: url("<?php 
     echo $cover
@@ -311,4 +312,29 @@
 
 .delete-btn:hover {
  
+}
+.page {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.page a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 5px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.page a:hover {
+    background-color: #2980b9;
+}
+.search{
+  display: inline;
+  align-self: center ;
+  color: #111;
 }
