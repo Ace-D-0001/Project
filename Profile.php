@@ -53,7 +53,7 @@
             $user_profile_pic=$user_data['profile_pic'];
             
             $insert_sql = "INSERT INTO posts (user_id, user_name, profile_image, content, timestampt, status, upvotes, downvotes) 
-                            VALUES ('$user_id', '$username', '$user_profile_pic', '$post_content', NOW(), 'pending', 0, 0)";
+                            VALUES ('$user_id', '$username', '$user_profile_pic', '$post_content', NOW(), 'approved', 0, 0)";
             mysqli_query($conn, $insert_sql);
             $post_content ="";
         }

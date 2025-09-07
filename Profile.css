@@ -333,8 +333,11 @@
 .page a:hover {
     background-color: #2980b9;
 }
-.search{
-  display: inline;
-  align-self: center ;
-  color: #111;
+.search .search{
+  background-color: #272626;
+  align-items: center;
+
+}
+.Go{
+  background-color: #111;
 }
