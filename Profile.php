@@ -58,6 +58,14 @@
             $post_content ="";
         }
     }
+        if (isset($_GET['del'])){
+            $post_id = intval($_GET['del']);
+            $del_sql="ALTER TABLE posts DROP  where id=$post_id  ";
+            mysqli_query($conn, $del_sql);
+              header("Location: Profile.php?user_id=".$user_id);
+              exit();
+    }
+
     ?>
     <style>
     .cover_photo {
@@ -105,7 +113,7 @@
                 </div>
             </div>
 
-            <div class="cover_photo"></div>
+            <div class="cover_photo"> </div>
             <div class="DP">
                 <div>
                     <img class="dp_img" src="<?php echo $dp; ?>" alt="">
@@ -119,7 +127,7 @@
                     <p><?php echo htmlspecialchars($bio); ?></p>
                 </div>
             </div>
-            <!--  <div class="popup_overlay">-->
+            
             <div class="Posts">
                 <h1>Wanna_Post_Something:</h1>
             </div>
@@ -173,7 +181,10 @@
                 </div>
 
             </div>
-            <div class="delete-btn" data-post-id="<?php echo $post['id']; ?>">🗑️</div>
+             <form action="Profile.php" method="get" >
+                <input type="hidden" name="del" value="<?php echo $post['id']; ?>">
+                <button type="submit" class="delete-btn">🗑️</button>
+            </form>
         </div>
         <?php
         }
