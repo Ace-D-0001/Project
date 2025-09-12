@@ -116,6 +116,13 @@
                             <div class="Logo_text"><p>- User</p></div>
                         </div>
                     </a>
+                    <a href="gc.php">
+                        <div class="Sub_top">
+                            <div class="logo">💬</div>
+                            <div class="Logo_text"><p>Char Room</p></div>
+                        </div>
+
+                    </a>
                     <a href="logout.php">
                         <div class="Log_Out">
                             <div class="logo">⏻</div>
