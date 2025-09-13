@@ -147,8 +147,9 @@
             <div class="search" name="search">
                 <form action="search_user.php" method="get">
 
-        <input type="text" name="username" placeholder="Search username" required>
-        <button type="submit">Search</button>
+        <input class="search_posts"text" name="username" placeholder="Search username" required>
+        <button type="submit"
+        class ="Goo" >Gooooooooooo</button>
     </form>
                 <!--<form action="Feed.php" method="get">
             <input class="search_user" name="search_user" type="search" placeholder="Look for a user">

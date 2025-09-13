@@ -7,6 +7,9 @@
         <link rel="stylesheet" href="pro.css">
         <title>User_Profile</title>
     </head>
+    <style>
+        
+    </style>
     <?php
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -45,6 +48,7 @@
         if(empty($post_content)){
             $error = "Error: Cannot post an empty message!";
         }
+      
         else {
             $user_sql="SELECT profile_pic FROM basic_user_info WHERE username='$username' AND password= '$password'";
             $user_result=mysqli_query($conn,$user_sql);
@@ -58,12 +62,19 @@
             $post_content ="";
         }
     }
+    
         if (isset($_GET['del'])){
             $post_id = intval($_GET['del']);
-            $del_sql="ALTER TABLE posts DROP  where id=$post_id  ";
-            mysqli_query($conn, $del_sql);
-              header("Location: Profile.php?user_id=".$user_id);
-              exit();
+
+            $del_sql="delete from posts  where id=$post_id  ";  
+          
+            
+        if (mysqli_query($conn, $del_sql)) {
+        header("Location: Profile.php?user_id=" . $user_id);
+        exit();
+          } else {
+        echo "❌ Error deleting record: " . mysqli_error($conn);
+        }
     }
 
     ?>
@@ -169,23 +180,68 @@
         while ($post = mysqli_fetch_assoc($posts_result)) {
             ?>
         <div class="Post_body">
-
-            <img src="<?php echo htmlspecialchars($post['profile_image']); ?>" alt="">
-            <div class="post_text">
-                <p><?php echo htmlspecialchars($post['user_name']); ?></p>
-                <time datetime="<?php echo date('c', strtotime($post['timestampt'])); ?>">
-                    Posted on <?php echo date("F j, Y \\a\\t g:i A", strtotime($post['timestampt'])); ?>
-                </time>
-                <div class="post_Content">
-                    <p><?php echo htmlspecialchars($post['content']); ?></p>
-                </div>
-
+    <div class="post_main">
+        <img src="<?php echo htmlspecialchars($post['profile_image']); ?>" alt="">
+        <div class="post_text">
+            <p><?php echo htmlspecialchars($post['user_name']); ?></p>
+            <time datetime="<?php echo date('c', strtotime($post['timestampt'])); ?>">
+                Posted on <?php echo date("F j, Y \\a\\t g:i A", strtotime($post['timestampt'])); ?>
+            </time>
+            <div class="post_Content">
+                <p><?php echo htmlspecialchars($post['content']); ?></p>
             </div>
-             <form action="Profile.php" method="get" >
-                <input type="hidden" name="del" value="<?php echo $post['id']; ?>">
-                <button type="submit" class="delete-btn">🗑️</button>
-            </form>
         </div>
+    </div>
+            <style>
+                .Post_body {
+  display: flex;
+  justify-content: space-between; /* push delete button to far right */
+  align-items: flex-start; /* align everything to top */
+  background-color: #161515;
+  border-radius: 20px;
+  padding: 15px 20px;
+  margin: 20px auto;
+  color: #eee;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  width: 90%;
+}
+
+.post_main {
+  display: flex;
+  gap: 15px; /* space between image & text */
+}
+
+.post_text {
+  display: flex;
+  flex-direction: column;
+}
+
+.Post_body img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.delete-btn {
+  font-size: 24px;
+  color: #aaa;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.delete-btn:hover {
+  color: red; /* highlight on hover */
+}
+
+</style>
+    <form action="Profile.php" method="get">
+        <input type="hidden" name="del" value="<?php echo $post['id']; ?>">
+        <button type="submit" class="delete-btn">🗑️</button>
+    </form>
+</div>
+
         <?php
         }
     } else {
