@@ -20,7 +20,7 @@ $password= ($_POST["password"]);
 
 
 if ($username == "admin" AND $password == "admin") {
-    header("Location: Feed.php");
+    header("Location: Admin_pannel.php");
     exit;
     }
     else {  
